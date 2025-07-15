@@ -1386,6 +1386,7 @@ header {
   background: rgba(136, 136, 136, 0.05);
   border-radius: 15px;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid oklab(79.4875% -.141321 -.00656533 / .1);
   transition: all 0.3s ease;
 }
@@ -1448,6 +1449,7 @@ header {
   padding: 30px 0;
   border: 1px solid rgba(0, 229, 204, 0.2);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   max-width: 440px;
   margin: 0 auto;
 }
@@ -1892,6 +1894,7 @@ header {
   padding: 40px;
   border: 1px solid oklab(79.4875% -.141321 -.00656533 / .1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .form-title {

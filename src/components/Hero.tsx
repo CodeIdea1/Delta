@@ -9,7 +9,7 @@ export default function Hero() {
     const bgRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     useGsapHeroAnimation({ heroRef, bgRef, contentRef });
-    
+
     return (
         <div>
             <section className="hero" ref={heroRef}>
@@ -18,7 +18,7 @@ export default function Hero() {
                 <div className="overlay"></div>
                 <div className="container">
                     <div className="hero-content pre-hidden" ref={contentRef}>
-                        <div className="banner-text">Dubai's Premier Furniture Atelier</div>
+                        <div className="banner-text">Dubai&apos;s Premier Furniture Atelier</div>
 
                         <h1 className="hero-title">
                             <span>Where Luxury</span>
@@ -47,7 +47,7 @@ export default function Hero() {
                                 <p>Happy Clients</p>
                             </div>
                             <div className="stat-box">
-                                <CheckCircle className="stat-icon animated-icon animated-icon3" size={55}/>
+                                <CheckCircle className="stat-icon animated-icon animated-icon3" size={55} />
                                 <h3>1000+</h3>
                                 <p>Projects Delivered</p>
                             </div>
