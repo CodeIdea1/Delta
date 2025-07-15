@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
+import Image from "next/image";
 
 interface Testimonial {
   id: number;
@@ -11,6 +12,12 @@ interface Testimonial {
   company: string;
   avatar: string;
   rating: number;
+}
+
+interface ApiUser {
+  name: { first: string; last: string };
+  location: { country: string };
+  picture: { large: string };
 }
 
 const ClientTestimonials: React.FC = () => {
@@ -24,10 +31,10 @@ const ClientTestimonials: React.FC = () => {
         const fakeQuotes = [
           "Amazing work and attention to detail. Highly recommend!",
           "Delta Furniture made our dream office a reality.",
-          "Professional, creative, and always on time!"
+          "Professional, creative, and always on time!",
         ];
 
-        const mapped: Testimonial[] = data.results.map((user: any, i: number) => ({
+        const mapped: Testimonial[] = data.results.map((user: ApiUser, i: number) => ({
           id: i + 1,
           name: `${user.name.first} ${user.name.last}`,
           position: "Customer",
@@ -55,7 +62,7 @@ const ClientTestimonials: React.FC = () => {
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
-      <span key={index} className={`star ${index < rating ? 'filled' : ''}`}>
+      <span key={index} className={`star ${index < rating ? "filled" : ""}`}>
         <Star fill="#04d9c4" stroke="#04d9c4" size={20} />
       </span>
     ));
@@ -66,16 +73,17 @@ const ClientTestimonials: React.FC = () => {
       <div className="container">
         <div className="header">
           <div className="badge">
-            <div className='subtitle'>
-                <span className="icon">
+            <div className="subtitle">
+              <span className="icon">
                 <Star fill="#04d9c4" stroke="#04d9c4" size={15} />
-                </span>
-                Client Testimonials
+              </span>
+              Client Testimonials
             </div>
           </div>
           <h2 className="section-title">What Our Clients Say</h2>
           <p className="description">
-            Trusted by Dubai's most discerning clients for exceptional furniture craftsmanship and service
+            Trusted by Dubai&apos;s most discerning clients for exceptional furniture
+            craftsmanship and service
           </p>
         </div>
 
@@ -96,21 +104,21 @@ const ClientTestimonials: React.FC = () => {
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="testimonialCard">
                   <div className="quoteIcon">
-                  <Quote stroke="#04d9c48c" size={40} strokeWidth={1.5} />
+                    <Quote stroke="#04d9c48c" size={40} strokeWidth={1.5} />
                   </div>
 
-                  <div className="rating">
-                    {renderStars(testimonial.rating)}
-                  </div>
+                  <div className="rating">{renderStars(testimonial.rating)}</div>
 
                   <blockquote className="quote">
-                    "{testimonial.quote}"
+                    &quot;{testimonial.quote}&quot;
                   </blockquote>
 
                   <div className="author">
-                    <img
+                    <Image
                       src={testimonial.avatar}
                       alt={testimonial.name}
+                      width={50}
+                      height={50}
                       className="avatar"
                     />
                     <div className="authorInfo">
@@ -138,7 +146,8 @@ const ClientTestimonials: React.FC = () => {
             Join our satisfied clients today
           </button>
           <p className="footerText">
-            Experience the Delta Furniture difference - where quality meets craftsmanship
+            Experience the Delta Furniture difference - where quality meets
+            craftsmanship
           </p>
         </div>
       </div>
