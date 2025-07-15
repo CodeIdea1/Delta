@@ -34,7 +34,7 @@ interface UseGsapPortfolioAnimationOptions {
         if (!trigger) return;
 
         const tl = gsap.timeline({
-        scrollTrigger: { trigger, start: "top 80%" },
+        scrollTrigger: { trigger, start: "top 60%" },
         });
 
         tl.fromTo(
@@ -45,8 +45,8 @@ interface UseGsapPortfolioAnimationOptions {
 
         tl.fromTo(
         statsItemRefs.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power1.out", stagger: 0.1 },
+        { opacity: 0, scale:0 },
+        { opacity: 1, scale: 1, duration: 0.6, ease: "power1.out", stagger: 0.1 },
         "-=0.5"
         );
 

@@ -7,10 +7,10 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 interface UseGsapServicesAnimationOptions {
-  triggerRef: React.RefObject<HTMLElement>;
-  tagRef: React.RefObject<HTMLElement>;
-  h2Ref: React.RefObject<HTMLElement>;
-  pRef: React.RefObject<HTMLElement>;
+  triggerRef: React.RefObject<HTMLDivElement>;
+  tagRef: React.RefObject<HTMLDivElement>;
+  h2Ref: React.RefObject<HTMLHeadingElement>;
+  pRef: React.RefObject<HTMLParagraphElement>;
   cardsRef: React.MutableRefObject<HTMLElement[]>;
   cardTitlesRef: React.MutableRefObject<HTMLElement[]>;
   cardDescriptionsRef: React.MutableRefObject<HTMLElement[]>;
@@ -81,5 +81,15 @@ export function useGsapServicesAnimation({
       tl.kill();
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
-  }, [triggerRef, tagRef, h2Ref, pRef, cardsRef, cardTitlesRef, cardDescriptionsRef, featureRefs, viewMoreRefs]);
+  }, [
+    triggerRef,
+    tagRef,
+    h2Ref,
+    pRef,
+    cardsRef,
+    cardTitlesRef,
+    cardDescriptionsRef,
+    featureRefs,
+    viewMoreRefs,
+  ]);
 }

@@ -3,7 +3,14 @@
 import { useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Crown, Star, Hammer, Scissors, Menu, Paintbrush } from "lucide-react";
+import {
+  Crown,
+  Star,
+  Hammer,
+  Scissors,
+  Menu,
+  Paintbrush,
+} from "lucide-react";
 import { useGsapServicesAnimation } from "@/hooks/useGsapServicesAnimation";
 
 const services = [
@@ -42,10 +49,10 @@ const services = [
 ];
 
 export default function Services() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const tagRef = useRef<HTMLDivElement>(null);
-  const h2Ref = useRef<HTMLHeadingElement>(null);
-  const pRef = useRef<HTMLParagraphElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null!);
+  const tagRef = useRef<HTMLDivElement>(null!);
+  const h2Ref = useRef<HTMLHeadingElement>(null!);
+  const pRef = useRef<HTMLParagraphElement>(null!);
 
   const cardsRef = useRef<HTMLElement[]>([]);
   const cardTitlesRef = useRef<HTMLElement[]>([]);
@@ -57,13 +64,19 @@ export default function Services() {
     if (el) cardsRef.current[index] = el;
   }, []);
 
-  const setCardTitleRef = useCallback((el: HTMLElement | null, index: number) => {
-    if (el) cardTitlesRef.current[index] = el;
-  }, []);
+  const setCardTitleRef = useCallback(
+    (el: HTMLElement | null, index: number) => {
+      if (el) cardTitlesRef.current[index] = el;
+    },
+    []
+  );
 
-  const setCardDescriptionRef = useCallback((el: HTMLElement | null, index: number) => {
-    if (el) cardDescriptionsRef.current[index] = el;
-  }, []);
+  const setCardDescriptionRef = useCallback(
+    (el: HTMLElement | null, index: number) => {
+      if (el) cardDescriptionsRef.current[index] = el;
+    },
+    []
+  );
 
   const setFeatureRef = useCallback(
     (el: HTMLElement | null, serviceIndex: number, featureIndex: number) => {
@@ -75,9 +88,12 @@ export default function Services() {
     []
   );
 
-  const setViewMoreRef = useCallback((el: HTMLElement | null, index: number) => {
-    if (el) viewMoreRefs.current[index] = el;
-  }, []);
+  const setViewMoreRef = useCallback(
+    (el: HTMLElement | null, index: number) => {
+      if (el) viewMoreRefs.current[index] = el;
+    },
+    []
+  );
 
   useGsapServicesAnimation({
     triggerRef: sectionRef,
@@ -103,7 +119,7 @@ export default function Services() {
           <h2 ref={h2Ref}>Services</h2>
           <p ref={pRef}>
             Five decades of expertise in creating bespoke furniture solutions
-            for Dubai's <br /> most discerning clients
+            for Dubai&apos;s <br /> most discerning clients
           </p>
         </div>
 
@@ -128,7 +144,9 @@ export default function Services() {
 
               <div className="card-content">
                 <h3 ref={(el) => setCardTitleRef(el, i)}>{service.title}</h3>
-                <p ref={(el) => setCardDescriptionRef(el, i)}>{service.description}</p>
+                <p ref={(el) => setCardDescriptionRef(el, i)}>
+                  {service.description}
+                </p>
                 <ul>
                   {service.features.map((feature, idx) => (
                     <li
